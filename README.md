@@ -17,7 +17,7 @@
 
 ### Requirements
 
-- Copy the `dataset` folder and `models` folder to the root folder (MyDrive) of your Google Drive.
+- Copy all three .ipynb files, the `dataset` folder and `models` folder to the root folder (MyDrive) of your Google Drive.
 
 - Google CoLab is required to access each .ipynb file.
     - To import, click on `File -> Open Notebook`.
