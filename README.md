@@ -43,7 +43,7 @@
 
 ### Executing Testing.ipynb
 
-- This uses an alternative dataset for preprocessing and training.
+- This uses an alternative dataset, `testing_data.csv`, for preprocessing and training.
 
 - Everything mentioned previously be will be performed by this file, except that it will now import the models exported by `Training.ipynb`, and will not transform the dataset to make it 30% attack traffic and 70% beneign traffic.
 
