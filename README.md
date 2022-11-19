@@ -2,14 +2,15 @@
 
 ## Table Of Contents
 
-- [Port Scanning Detection with Machine Learning](#port-scanning-detection-with-machine-learning-user-manual)
-  * [Table Of Contents](#table-of-contents)
-  * [Getting Started](#getting-started)
-    + [Requirements](#requirements)
-    + [Executing PreProcessing.ipynb](#executing-preprocessingipynb)
-    + [Executing Training.ipynb](#executing-trainingipynb)
-    + [Executing Testing.ipynb](#executing-testingipynb)
-  * [Authors](#authors)
+- [Port Scanning Detection with Machine Learning (User Manual)](#port-scanning-detection-with-machine-learning-user-manual)
+  - [Table Of Contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+    - [Requirements](#requirements)
+    - [Executing PreProcessing.ipynb](#executing-preprocessingipynb)
+    - [Executing Training.ipynb](#executing-trainingipynb)
+    - [Executing Testing.ipynb](#executing-testingipynb)
+    - [Generating alternate dataset](#generating-alternate-dataset)
+  - [Authors](#authors)
 
 ## Getting Started
 
@@ -48,6 +49,18 @@
 - Everything mentioned previously be will be performed by this file, except that it will now import the models exported by `Training.ipynb`, and will not transform the dataset to make it 30% attack traffic and 70% beneign traffic.
 
 - Click on `Runtime -> Run All` to execute everything at once.  
+
+### Generating alternate dataset
+
+This requires `docker` and `docker-compose`
+
+1. Navigate to the `alternate_dataset_environment` folder
+2. Run `docker-compose up -d --scale client=50`
+3. Run `docker-compose exec server /bin/services.sh` to start the services on the server
+4. Run `docker-compose exec kali nmap server`
+5. Browse kibana via `http://localhost:5601`
+6. Click on Discovery and filter `event.dataset: "flow"`
+7. Click on `Share > CSV Reports > Generate CSV` and download the csv
 
 ## Authors
 
