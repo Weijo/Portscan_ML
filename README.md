@@ -66,7 +66,7 @@
 ### Dashboard
 
 - Click on `dashboard.html` in the `dashboard` folder to view the graphs for Accuracy, Precision, Recall, Processing Time, and all of the above.
-
+- This will only show graphs for the original dataset used in `Training.ipynb`.
 
 ## Authors
 
