@@ -10,6 +10,7 @@
     - [Executing Training.ipynb](#executing-trainingipynb)
     - [Executing Testing.ipynb](#executing-testingipynb)
     - [Generating alternate dataset](#generating-alternate-dataset)
+    - [Dashboard](#dashboard)
   - [Authors](#authors)
 
 ## Getting Started
@@ -52,15 +53,20 @@
 
 ### Generating alternate dataset
 
-This requires `docker` and `docker-compose`
+- This requires `docker` and `docker-compose`
+- To generate the alternate dataset, do the following:
+    1. Navigate to the `alternate_dataset_environment` folder
+    2. Run `docker-compose up -d --scale client=50`
+    3. Run `docker-compose exec server /bin/services.sh` to start the services on the server
+    4. Run `docker-compose exec kali nmap server`
+    5. Browse kibana via `http://localhost:5601`
+    6. Click on Discovery and filter `event.dataset: "flow"`
+    7. Click on `Share > CSV Reports > Generate CSV` and download the csv
 
-1. Navigate to the `alternate_dataset_environment` folder
-2. Run `docker-compose up -d --scale client=50`
-3. Run `docker-compose exec server /bin/services.sh` to start the services on the server
-4. Run `docker-compose exec kali nmap server`
-5. Browse kibana via `http://localhost:5601`
-6. Click on Discovery and filter `event.dataset: "flow"`
-7. Click on `Share > CSV Reports > Generate CSV` and download the csv
+### Dashboard
+
+- Click on `dashboard.html` in the `dashboard` folder to view the graphs for Accuracy, Precision, Recall, Processing Time, and all of the above.
+
 
 ## Authors
 
